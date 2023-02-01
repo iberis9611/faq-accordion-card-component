@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+/* || RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+image {
+    display: block;
+}
+
+/* || VARIABLES */
+:root {
+    /* FONTS */
+    --FF: 'Kumbh Sans', sans-serif;
+    --FS: 0.75rem;
+    --FS-L: 2rem;
+    --FW-B: 700;
+
+    /* COLORS */
+    --BODY-GRADIENT-TOP: hsl(273, 75%, 66%);
+    --BODY-GRADIENT-BOTTOM: hsl(240, 73%, 65%);
+    --MAIN-BGCOLOR : hsl(0, 0%, 100%);
+    --SUMMARY-COLOR: hsl(237, 12%, 33%);
+    --P-COLOR: hsl(240, 6%, 50%);
+    --DIVIDER-COLOR: hsl(240, 5%, 91%);
+    --HOVER-SUMMARY-COLOR: hsl(14, 88%, 65%);
+    --DETAILS-OPEN-COLOR: hsl(238, 29%, 16%);
+
+    /* BORDERS */
+    --BORDER-RADIUS: 2em;
+
+    /* WIDTH */
+    --ILLUSTRATION-WIDTH: 15em;
+
+    --BODY-PADDING-TOP: 32px;
+}
+
+/* || GENERAL */
+body {
+    min-width: 375px;
+    min-height: 100vh;
+    font-family: var(--FF);
+    font-size: var(--FS);
+    background-image: linear-gradient(var(--BODY-GRADIENT-TOP), var(--BODY-GRADIENT-BOTTOM));
+    padding: 9.7em 1.5em 5em;
+}
+
+h1 {
+    font-size: var(--FS-L);
+    font-weight: var(--FW-B);
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+summary {
+    color: var(--SUMMARY-COLOR);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary:hover {
+    color: var(--HOVER-SUMMARY-COLOR);
+    cursor: pointer;
+}
+
+details[open] summary {
+    font-weight: var(--FW-B);
+    color: var(--DETAILS-OPEN-COLOR);
+}
+
+details[open] img {
+    transform: scaleY(-1);
+}
+
+p {
+    color: var(--P-COLOR);
+    margin-top: 1em;
+    margin-right: 2em;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: var(--DIVIDER-COLOR);
+}
+
+/* || FAQ COMPONENT */
+.main {
+    min-height: 540px;
+    padding: 2em 1.5em 3em;
+    background-color: var(--MAIN-BGCOLOR);
+    border-radius: var(--BORDER-RADIUS);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* HOW TO POSITION SVG */
+.illustration {
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.illustration picture {
+    display: flex;
+    justify-content: center;
+}
+
+.illustration img {
+    width: 80%;
+    height: auto;
+    top: 0;
+}
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+
+/* SMALL */
+@media screen and (min-width: 576px) {
+
+    body {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main {
+        width: 920px;
+        height: 510px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .illustration {
+        height: 100%;
+        position: relative;
+        align-self: center;
+    }
+
+    .faq {
+        justify-content: space-between;
+        padding: 4em;
+        gap: 0;
+    }
+
+    h1 {
+        text-align: left;
+    }
+
+    .illustration img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        left: -5.5em;
+        top: 5.5em;
+    }
+}
